@@ -78,13 +78,13 @@ def calcular():
         print(f"ERROR: {e}")
         return jsonify({"error": str(e)}), 500
 
-#@app.route("/health", methods=["GET"])
-#def health():
-#    """Health check endpoint"""
-#    return jsonify({
-#        "status": "ok",
-#        "configured": bool(DATABRICKS_TOKEN and DATABRICKS_INSTANCE)
-#    })
+@app.route("/health", methods=["GET"])
+def health():
+    """Health check endpoint"""
+    return jsonify({
+        "status": "ok",
+        "configured": bool(DATABRICKS_TOKEN and DATABRICKS_INSTANCE)
+    })
 
 if __name__ == "__main__":
     if not DATABRICKS_TOKEN or not DATABRICKS_INSTANCE:
@@ -93,6 +93,7 @@ if __name__ == "__main__":
         print(f"Starting Flask app - Endpoint: {ENDPOINT_NAME}")
     
     app.run(debug=False,host="0.0.0.0",port=8080)
+
 
 
 
