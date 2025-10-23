@@ -92,5 +92,6 @@ if __name__ == "__main__":
     else:
         print(f"Starting Flask app - Endpoint: {ENDPOINT_NAME}")
     
-    app.run(debug=True)
+    app.run(debug=False)
+
 
